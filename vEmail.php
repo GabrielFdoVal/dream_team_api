@@ -1,7 +1,7 @@
 <?php
 
-$return["error"] = false;
-$return["result"] = "";
+$return["error"] = true;
+$return["result"] = "Error on parameters";
 
 $val = isset($_POST["email"]);
 
@@ -11,7 +11,6 @@ if($val){
 
     include_once("./conection.php");
 
-    $dados = array();
     $query = $pdo->query("select cd_email from tb_usuario where cd_email = '$email'");
     $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
