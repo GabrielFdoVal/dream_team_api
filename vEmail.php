@@ -1,26 +1,33 @@
 <?php
 
-$url = "https://192.168.15.7".$_SERVER['REQUEST_URI'];
-$components = parse_url($url);
-parse_str($components['query'], $results);
-$email = $results['email'];
+$return["error"] = false;
+$return["result"] = "";
 
-include_once("./conection.php");
+$val = isset($_POST["email"]);
+
+if($val){
+    $email = $_POST["email"];
 
 
-$dados = array();
-$query = $pdo->query("select * from tb_usuario where cd_email = '$email'");
-$res = $query->fetchAll(PDO::FETCH_ASSOC);
+    include_once("./conection.php");
 
-for($i=0; $i < count($res); $i++){
-    foreach($res[$i] as $key => $value){}
-    $dados = $res;
+    $dados = array();
+    $query = $pdo->query("select cd_email from tb_usuario where cd_email = '$email'");
+    $res = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    if(json_encode($res) !== "[]"){
+        $return["error"] = false;
+        $return["result"] = true;
+    }
+    else {
+        $return["error"] = false;
+        $return["result"] = false;
+    }
 }
 
-echo($res) ?
-json_encode(true):
-json_encode(false);
+header('Content-Type: application/json');
 
+echo json_encode($return);
 
 
 ?>

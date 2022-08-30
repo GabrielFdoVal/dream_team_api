@@ -25,7 +25,9 @@ $resMaxCdUsuario = $queryMaxCdUsuario->fetchAll(PDO::FETCH_ASSOC);
 $maxCdUsuario = json_encode($resMaxCdUsuario[0]['max(cd_usuario)']);
 $newCdUsuario = $maxCdUsuario + 1;
 echo($newCdUsuario);
-// $queryInsertUsuario = $pdo->query("insert into tb_usuario values $newCdUsuario, '$name', '$email', '$birthday', 0, 0, '$password', 'teste', 0, null");
+
+
+$queryInsertUsuario = $pdo->query("insert into tb_usuario values $newCdUsuario, '$name', '$email', '$birthday', 0, 0, '$password', 'teste', 0, null");
 // $resInsertUsuario = $queryInsertUsuario->fetchAll(PDO::FETCH_ASSOC);
 // echo(json_encode($resInsertUsuario));
 
