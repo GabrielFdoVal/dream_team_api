@@ -1,16 +1,8 @@
 <?php
 
-$banco = 'db_dream_team';
-$host = 'localhost';
-$usuario = 'root';
-$senha = '';
+$db = "db_dream_team";
+$dbuser = "root";
+$dbpassword = "";
+$dbhost = "localhost";
 
-date_default_timezone_set('America/Sao_Paulo');
-
-
-try{
-    $pdo = new PDO("mysql:dbname=$banco;host=$host;charset=utf8","$usuario", "$senha");
-} catch (Exeption $e){
-    echo "Erro ao conectar com o banco de dados ".$e;
-}
-?>
+$link = mysqli_connect($dbhost, $dbuser, $dbpassword, $db);
