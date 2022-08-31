@@ -25,17 +25,32 @@ if($val){
     $password = "1234";
     $birthday = "2002-03-28";
 
-    $dados = array();
-    $sql = "SELECT * FROM tb_usuario";
-    $res = $link->query("SELECT * FROM tb_usuario", MYSQLI_USE_RESULT);
-    $dados = $res->fetch_object();
+    
+    $sql = "SELECT MAX(cd_usuario) FROM tb_usuario";
+    $res = $link->query($sql, MYSQLI_USE_RESULT);
+    
     if($res){
-        $return["error"] = false;
-        $return["result"] = $res;
-        echo(json_encode($dados));
+        $dados = json_encode($res->fetch_object());
+        $json = json_decode($dados,true);
+        $max = $json['MAX(cd_usuario)'] + 1;
+
+        //até aqui funciona
+
+        $insert_sql = "INSERT INTO tb_usuario VALUES ('$max', '$name', '$email', '$birthday', '0', '0', '$password', 'teste', '0', 'null')";
+
+
+        $res_insert = mysqli_query($link, $insert_sql);
+        if($res_insert){
+            $return["error"] = false;
+            $return["result"] = "insert sucsseful ".json_encode($res->fetch_object());
+        } else {
+            $return["error"] = true;
+            $return["result"] = "Failed on insert into tb_usuario";
+        }
     }
     else{
-        echo("bbbbbbbbbbbbbbbb");
+        $return["error"] = true;
+        $return["result"] = "Failed on get the max id";
     }
     
 

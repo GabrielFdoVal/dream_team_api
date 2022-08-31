@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Estrutura da tabela `ordem_patrocinador_liga`
 --
+use db_dream_team;
 
 CREATE TABLE `ordem_patrocinador_liga` (
   `cd_patrocinador` int(10) NOT NULL,
