@@ -1,0 +1,43 @@
+<?php
+    class DB{
+        public function __construct() {
+            $this->user = 'root';
+            $this->password = '';
+            $this->database = 'db_dream_team';
+            $this->host = 'localhost:3307';
+
+            $this->Connect();
+        }
+
+        protected function Connect() {
+            $this->mysqli = new mysqli($this->host, $this->user, $this->password, $this->database);
+
+            if (mysqli_connect_errno()) {
+                die('Não foi possível conectar-se ao banco de dados');
+                exit();
+            }
+        }
+
+        public function CloseConnection() {
+            $this->mysqli->close();
+        }
+
+        public function ExecSQL($sql): bool {
+            $this->sql = $this->mysqli->query($sql);
+            $this->CloseConnection();
+
+            return $this->sql;
+        }
+
+        public function Consult($dados) {
+            $this->sql = $this->mysqli->query($dados);
+            $this->result = array();
+            while($row = $this->sql->fetch_assoc()){
+                foreach($row as $Result=>$Column) {
+                    array_push($this->result, $Column);
+                }
+            }
+            $this->CloseConnection();
+            return $this->result;
+        }
+    }
