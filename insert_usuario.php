@@ -10,9 +10,7 @@ if($val){
     $email = $_POST["email"];
     $password = $_POST["password"];
     $birthday = $_POST["birthday"];
-
-    echo($name.$email.$password.$birthday);
-
+    
     require('./conection.php');
     $sql = "SELECT MAX(cd_usuario) FROM tb_usuario";
     $res = $link->query($sql, MYSQLI_USE_RESULT);
