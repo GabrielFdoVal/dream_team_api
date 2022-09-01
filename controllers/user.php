@@ -8,6 +8,10 @@
                     $_POST['email'],
                     $_POST['password'],
                 );
+                http_response_code($response);
+                if($response == 200){
+                    echo json_encode($user);
+                }
             } else {
                 $response = $user->SignUp(
                     $_POST['name'],
@@ -21,5 +25,13 @@
                 }
             }
             break;
-        
+        case "GET":
+            
+            $user = new User();
+            $response = $user->validateEmail($_GET['email']);
+            http_response_code($response);
+            if($response == 200){
+                 echo json_encode($user);
+            }
+            break;
     }
