@@ -4,7 +4,7 @@
             $this->user = 'root';
             $this->password = '';
             $this->database = 'db_dream_team';
-            $this->host = 'localhost:3307';
+            $this->host = 'localhost:3306';
 
             $this->Connect();
         }
@@ -23,6 +23,7 @@
         }
 
         public function ExecSQL($sql): bool {
+            $this->Connect();
             $this->sql = $this->mysqli->query($sql);
             $this->CloseConnection();
 
@@ -30,6 +31,7 @@
         }
 
         public function Consult($dados) {
+            $this->Connect();
             $this->sql = $this->mysqli->query($dados);
             $this->result = array();
             while($row = $this->sql->fetch_assoc()){

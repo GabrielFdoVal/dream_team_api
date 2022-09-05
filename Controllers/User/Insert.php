@@ -1,18 +1,23 @@
 <?php
     include "../../Services/User/Insert.php";
-    $Body = json_decode(file_get_contents('php://input'), true);
+    file_get_contents('php://input');
 
     $response = SignUp(
-        $Body['Name'] ?? null,
-        $Body['Email'] ?? null,
-        $Body['Password'] ?? null,
-        $Body['Birthday'] ?? null
+        $_POST['name'] ?? null,
+        $_POST['email'] ?? null,        
+        $_POST['birthday'] ?? null,
+        $_POST['leonita'] ?? null,
+        $_POST['ametista'] ?? null,
+        $_POST['password'] ?? null,
+        $_POST['nickname'] ?? null,
+        $_POST['point'] ?? null,
+        $_POST['sponsorsLeague'] ?? null,
     );
 
-    http_response_code($response->Status);
-    if($response->Status == 201){
-        echo $response->Data;
+    http_response_code($response->status);
+    if($response->status == 201){
+        echo json_encode($response->data);
     }
     else{
-        echo json_encode($response->Message);
+        echo json_encode($response->message);
     }

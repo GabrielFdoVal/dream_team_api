@@ -1,23 +1,24 @@
 <?php
-    include($_SERVER['DOCUMENT_ROOT']."/API/Entities/User.php");
-    include($_SERVER['DOCUMENT_ROOT']."/API/Services/ResultService.php");
+    include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Entities/User.php");
+    include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Services/ResultService.php");
 
-    function SignUp($Name, $Email, $Password, $Birthday): ResultService {
+    function SignUp($name, $email, $birthday, $leonita, $ametista, $password, $nickname, $point, $sponsorsLeague): ResultService {
         $result = new ResultService();
+        
 
-        if($Name == null || $Email == null || $Password == null || $Birthday == null ){
+        if($name == null || $email == null || $birthday == null || $leonita == null || $ametista == null || $password == null || $nickname == null || $point == null || $sponsorsLeague == null){
             //Validação dos campos aqui, caso algum esteja errado o erro é 400.
             $result->Fail(400, "One or more fields are incorrect.");
             return $result;
         }
 
-        include($_SERVER['DOCUMENT_ROOT']."/API/Repositories/User/Insert.php");
+        include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Repositories/User/Insert.php");
 
-        $user = new User($Name, $Email, $Password, $Birthday);
+        $user = new User($name, $email, $birthday, $leonita, $ametista, $password, $nickname, $point, $sponsorsLeague);
         $code = Insert($user);
 
         if($code){
-            $result->Ok(201, json_encode($user->expose()));
+            $result->Ok(201, $user->expose());
         }
         else{
             $result->Fail(500, "Internal Server Error. Please, try again later.");

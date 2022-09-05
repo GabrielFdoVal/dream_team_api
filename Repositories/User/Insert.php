@@ -1,28 +1,32 @@
 <?php
     function Insert($user): bool {
-        include($_SERVER['DOCUMENT_ROOT']."/API/Connection.php");
+        include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Connection.php");
 
         $DB = new DB();
 
         try {
+            $res_getId = $DB->Consult(
+                "SELECT max(cd_usuario) FROM tb_usuario;",
+                MYSQLI_USE_RESULT
+            );
+            $id = $res_getId[0] == null ? 1 : $res_getId[0] + 1;
             $res_insert = $DB->ExecSQL(
                 "INSERT INTO tb_usuario VALUES 
-                   ((SELECT Id FROM (select (max(cd_usuario) + 1) Id from tb_usuario) as Id), 
+                   ($id, 
                     '$user->name', 
                     '$user->email', 
-                    '$user->password', 
-                    0, 
-                    0, 
                     '$user->birthday', 
-                    'teste', 
-                    0, 
-                    null);",
+                    $user->leonita, 
+                    $user->ametista, 
+                    '$user->password', 
+                    '$user->nickname', 
+                    $user->point,
+                    $user->sponsorsLeague);",
                 MYSQLI_USE_RESULT
             );
         } catch (Exception $e) {
             return false;
         }
-
         if($res_insert){
             return true;
         } else {

@@ -1,16 +1,21 @@
 <?php
     class ResultService{
-        public int $Status;
-        public ?String $Data;
-        public ?String $Message;
+        public int $status;
+        public ?array $data;
+        public ?String $message;
 
-        public function Ok($Status, $Data){
-            $this->Status = $Status;
-            $this->Data = $Data;
+        public function Ok($status, $data){
+            $this->status = $status;
+            $this->data = $data;
         }
 
-        public function Fail($Status, $Message){
-            $this->Status = $Status;
-            $this->Message = $Message;
+        public function Fail($status, $message){
+            $this->status = $status;
+            $this->message = $message;
+        }
+
+        public function OkNoData($status, $message){
+            $this->status = $status;
+            $this->message = $message;
         }
     }
