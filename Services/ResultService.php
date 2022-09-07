@@ -14,8 +14,7 @@
             $this->message = $message;
         }
 
-        public function OkNoData($status, $message){
+        public function OkNoData($status){
             $this->status = $status;
-            $this->message = $message;
         }
     }
