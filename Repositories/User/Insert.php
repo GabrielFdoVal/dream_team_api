@@ -21,6 +21,7 @@
                     '$user->password', 
                     '$user->nickname', 
                     $user->point,
+                    $user->tatic,
                     $user->sponsorsLeague);",
                 MYSQLI_USE_RESULT
             );

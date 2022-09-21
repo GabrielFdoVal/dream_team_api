@@ -2,7 +2,7 @@
     include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Entities/User.php");
     include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Services/ResultService.php");
 
-    function SignUp($name, $email, $birthday, $leonita, $ametista, $password, $nickname, $point, $sponsorsLeague): ResultService {
+    function SignUp($name, $email, $birthday, $leonita, $ametista, $password, $nickname, $point, $tatic, $sponsorsLeague): ResultService {
         $result = new ResultService();
         
 
@@ -14,7 +14,7 @@
 
         include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Repositories/User/Insert.php");
 
-        $user = new User($name, $email, $birthday, $leonita, $ametista, $password, $nickname, $point, $sponsorsLeague);
+        $user = new User($name, $email, $birthday, $leonita, $ametista, $password, $nickname, $point, $tatic,$sponsorsLeague);
         $code = Insert($user);
 
         if($code){

@@ -16,7 +16,7 @@
 
         if($res_logIn){
             $userArray = array();
-            $user = new User($res_logIn[1],$res_logIn[2],$res_logIn[3],$res_logIn[4],$res_logIn[5],$res_logIn[6],$res_logIn[7],$res_logIn[8],$res_logIn[9]);
+            $user = new User($res_logIn[1],$res_logIn[2],$res_logIn[3],$res_logIn[4],$res_logIn[5],$res_logIn[6],$res_logIn[7],$res_logIn[8],$res_logIn[9],$res_logIn[10]);
             array_push($userArray, get_object_vars($user));
             return $userArray;
         } else {

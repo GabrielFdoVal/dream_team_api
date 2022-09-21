@@ -8,11 +8,12 @@
         public String $ametista;
         public String $password;
         public String $nickname;
-        public String $point;
+        public String $point;        
+        public String $tatic;
         public int $sponsorsLeague;
 
 
-        function __construct($name, $email, $birthday, $leonita, $ametista, $password, $nickname, $point, $sponsorsLeague){
+        function __construct($name, $email, $birthday, $leonita, $ametista, $password, $nickname, $point, $tatic, $sponsorsLeague){
             $this->name = $name;
             $this->email = $email;            
             $this->birthday = $birthday;
@@ -22,6 +23,7 @@
             $this->password = $password;
             $this->nickname = $nickname;
             $this->point = $point;
+            $this->tatic = $tatic;
             $this->sponsorsLeague = $sponsorsLeague;
         }
 

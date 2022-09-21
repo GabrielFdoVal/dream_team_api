@@ -11,6 +11,7 @@
         $_POST['password'] ?? null,
         $_POST['nickname'] ?? null,
         $_POST['point'] ?? null,
+        $_POST['tatic'] ?? null,
         $_POST['sponsorsLeague'] ?? null,
     );
 
