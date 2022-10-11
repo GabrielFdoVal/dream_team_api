@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30-Ago-2022 às 04:15
+-- Tempo de geração: 11-Out-2022 às 22:27
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 --
 -- Estrutura da tabela `ordem_patrocinador_liga`
 --
-use db_dream_team;
 
 CREATE TABLE `ordem_patrocinador_liga` (
   `cd_patrocinador` int(10) NOT NULL,
@@ -57,6 +56,13 @@ CREATE TABLE `tb_compra_jogador` (
   `cd_jogador` int(10) DEFAULT NULL,
   `dt_compra` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tb_compra_jogador`
+--
+
+INSERT INTO `tb_compra_jogador` (`cd_compra`, `cd_usuario`, `cd_jogador`, `dt_compra`) VALUES
+(2, 2, 9, '2022-10-07 22:08:51');
 
 -- --------------------------------------------------------
 
@@ -90,9 +96,25 @@ CREATE TABLE `tb_jogador` (
   `qt_arremesso_errado` int(3) DEFAULT NULL,
   `qt_turn_over` int(3) DEFAULT NULL,
   `cd_imagem` varchar(120) DEFAULT NULL,
-  `qt_preco` int(3) DEFAULT NULL,
+  `qt_preco` double DEFAULT NULL,
   `cd_time` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tb_jogador`
+--
+
+INSERT INTO `tb_jogador` (`cd_jogador`, `nm_jogador`, `nm_posicao`, `qt_ponto`, `qt_rebote`, `qt_toco`, `qt_bola_recuperada`, `qt_assistencia`, `qt_arremesso_errado`, `qt_turn_over`, `cd_imagem`, `qt_preco`, `cd_time`) VALUES
+(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 1),
+(2, 'Felipe', 'Pivô', 6, 10, 6, 4, 1, 5, 1, 'https://lnb.com.br/wp-content/uploads/2018/08/Felipe-Nascimento-1-400x400.png', 12, 2),
+(3, 'Da Silva', 'Ala', 20, 8, 2, 3, 6, 7, 3, 'https://lnb.com.br/wp-content/uploads/2020/10/TULIO-400x394.png', 23, 1),
+(4, 'Márcio', 'Ala', 19, 6, 3, 1, 2, 4, 2, 'https://lnb.com.br/wp-content/uploads/2018/08/Marcio-2-400x400.png', 16, 2),
+(5, 'Batista', 'Pivô', 12, 9, 5, 1, 0, 3, 0, 'https://lnb.com.br/wp-content/uploads/2016/10/BATISTA-400x394.png', 15, 1),
+(6, 'Du Klafke', 'Armador', 15, 4, 2, 5, 3, 3, 2, 'https://lnb.com.br/wp-content/uploads/2020/10/Du-Klafke-1-400x400.png', 15, 2),
+(7, 'Olivinha', 'Pivô', 6, 10, 5, 2, 0, 0, 1, 'https://lnb.com.br/wp-content/uploads/2016/10/OLIVINHA-1-400x381.png', 14, 1),
+(8, 'Scala', 'Armador', 14, 2, 3, 6, 7, 0, 1, 'https://lnb.com.br/wp-content/uploads/2021/07/Santiago-Scala-400x400.png', 18, 2),
+(9, 'Renato', 'Ala', 15, 4, 3, 2, 2, 0, 3, 'https://lnb.com.br/wp-content/uploads/2021/07/Renato.png', 14, 1),
+(10, 'Lucas Dias', 'Ala', 2, 12, 4, 1, 0, 3, 0, 'https://lnb.com.br/wp-content/uploads/2016/10/lucas-dias-1-400x394.png', 16, 2);
 
 -- --------------------------------------------------------
 
@@ -117,6 +139,17 @@ CREATE TABLE `tb_liga_patrocinada` (
   `cd_liga_patrocinada` int(10) NOT NULL,
   `nm_liga_patrocinada` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tb_liga_patrocinada`
+--
+
+INSERT INTO `tb_liga_patrocinada` (`cd_liga_patrocinada`, `nm_liga_patrocinada`) VALUES
+(1, 'Liga Caixa'),
+(2, 'Liga Nike'),
+(3, 'Liga Adidas'),
+(4, 'Liga Gatorade'),
+(5, 'Liga Growth');
 
 -- --------------------------------------------------------
 
@@ -200,6 +233,14 @@ CREATE TABLE `tb_time` (
   `cd_logo` varchar(120) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `tb_time`
+--
+
+INSERT INTO `tb_time` (`cd_time`, `nm_time`, `cd_logo`) VALUES
+(1, 'Flamengo', 'https://w7.pngwing.com/pngs/440/236/png-transparent-flamengo-hd-logo.png'),
+(2, 'SESI Franca', 'https://upload.wikimedia.org/wikipedia/en/7/75/Franca_basquete_logo.png');
+
 -- --------------------------------------------------------
 
 --
@@ -223,11 +264,12 @@ CREATE TABLE `tb_usuario` (
   `nm_usuario` varchar(100) DEFAULT NULL,
   `cd_email` varchar(100) DEFAULT NULL,
   `dt_nascimento` date DEFAULT NULL,
-  `qt_leonitas` int(9) DEFAULT NULL,
+  `qt_leonita` int(9) DEFAULT NULL,
   `qt_ametista` int(9) DEFAULT NULL,
   `nm_senha` varchar(30) DEFAULT NULL,
   `nm_apelido` varchar(8) DEFAULT NULL,
   `qt_pontos` int(9) DEFAULT NULL,
+  `cd_tatica` tinyint(1) DEFAULT NULL,
   `cd_liga_patrocinada` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -235,8 +277,16 @@ CREATE TABLE `tb_usuario` (
 -- Extraindo dados da tabela `tb_usuario`
 --
 
-INSERT INTO `tb_usuario` (`cd_usuario`, `nm_usuario`, `cd_email`, `dt_nascimento`, `qt_leonitas`, `qt_ametista`, `nm_senha`, `nm_apelido`, `qt_pontos`, `cd_liga_patrocinada`) VALUES
-(1, 'Gabriel Ferreira do Val', 'gabrielfdoval1@gmail.com', '2002-03-28', 0, 0, '123', 'doval13', 0, NULL);
+INSERT INTO `tb_usuario` (`cd_usuario`, `nm_usuario`, `cd_email`, `dt_nascimento`, `qt_leonita`, `qt_ametista`, `nm_senha`, `nm_apelido`, `qt_pontos`, `cd_tatica`, `cd_liga_patrocinada`) VALUES
+(1, 'gabriel', 'gabriel@gmail.com', '2002-03-28', 1000, 0, '1234', 'teste', 150, 0, 3),
+(2, 'gabriel', 'gabriel1@gmail.com', '2022-09-04', 536, 0, 'doVal13$$$', 'dovalzet', 200, 0, 3),
+(3, 'lucas', 'lucas@gmail.com', '2022-09-05', 0, 0, 'Lucas123$', 'luquinha', 250, 0, 3),
+(4, 'Matheus', 'matheus@email.com', '2022-09-13', 12, 0, 'matheus###1', 'matheusi', 150, 0, 3),
+(5, 'Juca', 'juca@email.com', '2022-09-25', 45, 0, 'juquinha@1', 'jucazin', 251, 0, 3),
+(6, 'Gabriel', 'lucas1@gmail.com', '2022-09-22', 0, 0, 'Lucas123%', 'luquinha', 0, 0, 3),
+(7, 'Gabriel', 'gabriel2@gmail.com', '2002-03-28', 2000, 0, 'Gabriel1$', 'gabrielz', 0, 0, 3),
+(8, 'gabriel', 'gabriel3@gmail.com', '2002-01-31', 2000, 0, 'Gabriel1@', 'Gabriel1', 0, 0, 3),
+(9, 'Gabriel', 'gabriel11111@gmai', '2002-04-16', 2000, 0, 'Gabriel1@', 'dovalzet', 0, 3, 3);
 
 --
 -- Índices para tabelas despejadas
