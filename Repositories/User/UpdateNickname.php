@@ -6,22 +6,16 @@
 
         try {
             $resUpdateNick = $DB->ExecSQL(
-                "
-                    UPDATE TB_USUARIO
-                    SET NM_APELIDO = '$nickname'
-                    WHERE CD_EMAIL = '$email'
-                ;",
-                MYSQLI_USE_RESULT
+                "UPDATE TB_USUARIO SET NM_APELIDO = '$nickname' WHERE CD_EMAIL = '$email';"
             );
-            $resSelectLeonitas = $DB->Consult("SELECT QT_LEONITAS FROM TB_USUARIO WHERE CD_EMAIL = '$email';");
+            $resSelectLeonitas = $DB->Consult("SELECT QT_LEONITA FROM TB_USUARIO WHERE CD_EMAIL = '$email';");
             $leonitas = $resSelectLeonitas[0] == null ? 1 : $resSelectLeonitas[0] - 100;
             $res_insert = $DB->ExecSQL(
                 "
                     UPDATE TB_USUARIO
-                    SET QT_LEONITAS = $leonitas
-                    WHERE CD_EMAIL = '$email'
-                ;",
-                MYSQLI_USE_RESULT
+                    SET QT_LEONITA = $leonitas
+                    WHERE CD_EMAIL = '{$email}'
+                ;"
             );
         } catch (Exception $e) {
             return false;
