@@ -6,6 +6,8 @@
         $DB = new DB();
 
         try {
+            $code = str_pad(strval(random_int(0, 99999999)), 8, '0');
+
             $res_getId = $DB->Consult(
                 "SELECT max(cd_liga_comum) FROM tb_liga_comum;",
                 MYSQLI_USE_RESULT
@@ -17,14 +19,15 @@
                     '$name', 
                     $rounds, 
                     $userLength,
-                    $private);",
+                    $private,
+                    $code);",
                 MYSQLI_USE_RESULT
             );
         } catch (Exception $e) {
             return false;
         }
         if($res_insert){
-            $leauge = new CustomLeague($id, $name, $rounds, $userLength, $private);
+            $leauge = new CustomLeague($id, $name, $rounds, $userLength, $private, $code);
             return $leauge->expose();
         } else {
             return false;

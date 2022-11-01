@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Out-2022 às 22:27
+-- Tempo de geração: 01-Nov-2022 às 13:22
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -41,8 +41,17 @@ CREATE TABLE `ordem_patrocinador_liga` (
 CREATE TABLE `ordem_usuario_comum` (
   `cd_usuario` int(10) NOT NULL,
   `cd_liga_comum` int(10) NOT NULL,
-  `qt_pontos` int(3) DEFAULT NULL
+  `qt_pontos` int(3) DEFAULT NULL,
+  `ic_criador` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `ordem_usuario_comum`
+--
+
+INSERT INTO `ordem_usuario_comum` (`cd_usuario`, `cd_liga_comum`, `qt_pontos`, `ic_criador`) VALUES
+(1, 5, 0, 0),
+(1, 5, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -56,13 +65,6 @@ CREATE TABLE `tb_compra_jogador` (
   `cd_jogador` int(10) DEFAULT NULL,
   `dt_compra` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `tb_compra_jogador`
---
-
-INSERT INTO `tb_compra_jogador` (`cd_compra`, `cd_usuario`, `cd_jogador`, `dt_compra`) VALUES
-(2, 2, 9, '2022-10-07 22:08:51');
 
 -- --------------------------------------------------------
 
@@ -114,7 +116,12 @@ INSERT INTO `tb_jogador` (`cd_jogador`, `nm_jogador`, `nm_posicao`, `qt_ponto`, 
 (7, 'Olivinha', 'Pivô', 6, 10, 5, 2, 0, 0, 1, 'https://lnb.com.br/wp-content/uploads/2016/10/OLIVINHA-1-400x381.png', 14, 1),
 (8, 'Scala', 'Armador', 14, 2, 3, 6, 7, 0, 1, 'https://lnb.com.br/wp-content/uploads/2021/07/Santiago-Scala-400x400.png', 18, 2),
 (9, 'Renato', 'Ala', 15, 4, 3, 2, 2, 0, 3, 'https://lnb.com.br/wp-content/uploads/2021/07/Renato.png', 14, 1),
-(10, 'Lucas Dias', 'Ala', 2, 12, 4, 1, 0, 3, 0, 'https://lnb.com.br/wp-content/uploads/2016/10/lucas-dias-1-400x394.png', 16, 2);
+(10, 'Lucas Dias', 'Ala', 2, 12, 4, 1, 0, 3, 0, 'https://lnb.com.br/wp-content/uploads/2016/10/lucas-dias-1-400x394.png', 16, 2),
+(11, 'Teste', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 1),
+(12, 'Teste', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 1),
+(13, 'Teste', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 1),
+(14, 'Teste', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 1),
+(15, 'Teste', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 1);
 
 -- --------------------------------------------------------
 
@@ -126,8 +133,33 @@ CREATE TABLE `tb_liga_comum` (
   `cd_liga_comum` int(10) NOT NULL,
   `nm_liga_comum` varchar(100) DEFAULT NULL,
   `qt_rodada` int(3) DEFAULT NULL,
-  `qt_usuario` int(3) DEFAULT NULL
+  `qt_usuario` int(3) DEFAULT NULL,
+  `ic_privada` tinyint(1) NOT NULL,
+  `cd_privada` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tb_liga_comum`
+--
+
+INSERT INTO `tb_liga_comum` (`cd_liga_comum`, `nm_liga_comum`, `qt_rodada`, `qt_usuario`, `ic_privada`, `cd_privada`) VALUES
+(1, 'liguinha', 5, 20, 1, ''),
+(2, 'liguinha', 5, 20, 1, ''),
+(3, 'liguinha', 5, 20, 1, ''),
+(4, 'liguinha', 5, 20, 1, ''),
+(5, 'liguinha', 5, 20, 1, ''),
+(6, 'liguinha', 5, 20, 1, ''),
+(7, 'liguinha', 5, 20, 1, ''),
+(8, 'liguinha', 5, 20, 1, ''),
+(9, 'liguinha', 5, 20, 1, ''),
+(10, 'liguinha', 5, 20, 1, ''),
+(11, 'liguinha', 5, 20, 1, ''),
+(12, 'liguinha', 5, 20, 1, '43495904'),
+(13, 'liguinha', 5, 20, 1, '90382225'),
+(14, 'liguinha', 5, 20, 1, '77359577'),
+(15, 'liguinha', 5, 20, 1, '71172773'),
+(16, 'liguinha', 5, 20, 1, '18546572'),
+(17, 'liguinha', 5, 20, 1, '73782249');
 
 -- --------------------------------------------------------
 
@@ -278,8 +310,8 @@ CREATE TABLE `tb_usuario` (
 --
 
 INSERT INTO `tb_usuario` (`cd_usuario`, `nm_usuario`, `cd_email`, `dt_nascimento`, `qt_leonita`, `qt_ametista`, `nm_senha`, `nm_apelido`, `qt_pontos`, `cd_tatica`, `cd_liga_patrocinada`) VALUES
-(1, 'gabriel', 'gabriel@gmail.com', '2002-03-28', 1000, 0, '1234', 'teste', 150, 0, 3),
-(2, 'gabriel', 'gabriel1@gmail.com', '2022-09-04', 536, 0, 'doVal13$$$', 'dovalzet', 200, 0, 3),
+(1, 'gabriel', 'gabriel@gmail.com', '2002-03-28', 1000, 0, '1234', 'teste', 150, 0, 1),
+(2, 'gabriel', 'gabriel1@gmail.com', '2022-09-04', 550, 0, 'doVal13$$$', 'dovalzet', 200, 0, 3),
 (3, 'lucas', 'lucas@gmail.com', '2022-09-05', 0, 0, 'Lucas123$', 'luquinha', 250, 0, 3),
 (4, 'Matheus', 'matheus@email.com', '2022-09-13', 12, 0, 'matheus###1', 'matheusi', 150, 0, 3),
 (5, 'Juca', 'juca@email.com', '2022-09-25', 45, 0, 'juquinha@1', 'jucazin', 251, 0, 3),
