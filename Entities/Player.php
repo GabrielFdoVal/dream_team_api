@@ -1,18 +1,18 @@
 <?php
     class Player {
-        public String $id;
-        public String $name;
-        public String $position;
-        public String $point;
-        public String $rebound;
-        public String $block;
-        public String $steal;
-        public String $assist;
-        public String $missShot;
-        public String $turnOver;
-        public String $imgUrl;
-        public String $price;
-        public String $team;
+        public ?String  $id;
+        public ?String $name;
+        public ?String $position;
+        public ?String $point;
+        public ?String $rebound;
+        public ?String $block;
+        public ?String $steal;
+        public ?String $assist;
+        public ?String $missShot;
+        public ?String $turnOver;
+        public ?String $imgUrl;
+        public ?String $price;
+        public ?String $team;
 
 
         function __construct($id, $name, $position, $point, $rebound, $block, $steal, $assist, $missShot, $turnOver, $imgUrl, $price, $team){
