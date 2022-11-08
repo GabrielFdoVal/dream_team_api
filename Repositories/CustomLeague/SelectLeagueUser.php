@@ -12,7 +12,7 @@
             );
             $id = $res_getId[0];
             $res_leagues = $DB->Consult(
-                "SELECT c.cd_liga_comum, c.nm_liga_comum, c.qt_rodada, c.qt_usuario, c.ic_privada, c.cd_privada 
+                "SELECT DISTINCT c.cd_liga_comum, c.nm_liga_comum, c.qt_rodada, c.qt_usuario, c.ic_privada, c.cd_privada 
                 FROM tb_liga_comum as c, ordem_usuario_comum as o 
                 WHERE o.cd_usuario = $id;",
                 MYSQLI_USE_RESULT
