@@ -30,9 +30,9 @@
           }
           
           $DB->ExecSQL("delete from tb_compra;");
+          
+          return 201;
         } catch (Exception $e) {
             return 500;
         }
-
-        return 201;
     }
