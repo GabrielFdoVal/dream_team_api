@@ -8,6 +8,43 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_paga_comum` (IN `codLiga` INT(11))   begin
+	declare usu1 int(11);
+	declare usu2 int(11);
+	declare usu3 int(11);
+    declare maxPonto decimal(9,2);
+    declare base int default 0;
+    
+	if( (select qt_rodada from tb_liga_comum where cd_liga_comum = codLiga) = 0) then
+		if( (select qt_usuario from tb_liga_comum where cd_liga_comum = codLiga) <= 50 ) then
+			set base = (select qt_usuario from tb_liga_comum where cd_liga_comum = codLiga) * 3 + (select sum(qt_pontos) from ordem_comum where cd_liga_comum = codLiga) * 0.35;
+		else 
+			set base = (select qt_usuario from tb_liga_comum where cd_liga_comum = codLiga) * 2.5 + (select sum(qt_pontos) from ordem_comum where cd_liga_comum = codLiga) * 0.30;
+		end if;
+        begin
+			set maxPonto = (select max(qt_pontos) from ordem_comum where cd_liga_comum = codLiga);
+			set usu1 = (select cd_usuario from ordem_comum where cd_liga_comum = codLiga order by qt_pontos DESC LIMIT 1);
+			delete from ordem_comum where cd_usuario = usu1;
+			set maxPonto = (select max(qt_pontos) from ordem_comum where cd_liga_comum = codLiga);
+			set usu2 = (select cd_usuario from ordem_comum where cd_liga_comum = codLiga order by qt_pontos DESC LIMIT 1);
+			delete from ordem_comum where cd_usuario = usu2;
+			set maxPonto = (select max(qt_pontos) from ordem_comum where cd_liga_comum = codLiga);
+			set usu3 = (select cd_usuario from ordem_comum where cd_liga_comum = codLiga order by qt_pontos DESC LIMIT 1);
+			delete from ordem_comum where cd_usuario = usu3;
+			update tb_usuario set qt_leonitas = qt_leonitas + base  where cd_usuario = usu1;
+			update tb_usuario set qt_leonitas = qt_leonitas + base*0.8  where cd_usuario = usu2;
+			update tb_usuario set qt_leonitas = qt_leonitas + base*0.55  where cd_usuario = usu3;
+			delete from ordem_comum where cd_liga_comum = codLiga;
+			delete from tb_liga_comum where cd_liga_comum = codLiga;
+        end;
+	else 
+		select 'Liga ainda não acabou';
+     end if;   
+end$$
+
+DELIMITER ;
+
 CREATE TABLE `log_tb_jogador` (
   `cd_jogador` int(10) NOT NULL,
   `nm_jogador` varchar(80) NOT NULL,
