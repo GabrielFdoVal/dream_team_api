@@ -32,9 +32,9 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_paga_comum` (IN `codLiga` INT(11
 			set maxPonto = (select max(qt_pontos) from ordem_comum where cd_liga_comum = codLiga);
 			set usu3 = (select cd_usuario from ordem_comum where cd_liga_comum = codLiga order by qt_pontos DESC LIMIT 1);
 			delete from ordem_comum where cd_usuario = usu3;
-			update tb_usuario set qt_leonitas = qt_leonitas + base  where cd_usuario = usu1;
-			update tb_usuario set qt_leonitas = qt_leonitas + base*0.8  where cd_usuario = usu2;
-			update tb_usuario set qt_leonitas = qt_leonitas + base*0.55  where cd_usuario = usu3;
+			update tb_usuario set qt_leonita = qt_leonita + base  where cd_usuario = usu1;
+			update tb_usuario set qt_leonita = qt_leonita + base*0.8  where cd_usuario = usu2;
+			update tb_usuario set qt_leonita = qt_leonita + base*0.55  where cd_usuario = usu3;
 			delete from ordem_comum where cd_liga_comum = codLiga;
 			delete from tb_liga_comum where cd_liga_comum = codLiga;
         end;

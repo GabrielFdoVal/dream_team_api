@@ -41,9 +41,11 @@
                $player->price = $player->price ?? $res_player[11];
                $player->team = $player->team ?? $res_player[12];
                
+               $points = ($player->point + $player->rebound + $player->steal + $player->assist) - ($player->missShot + $player->turnOver);
+               
                try {
                     $rplc = $DB->ExecSQL(
-                    "REPLACE INTO tb_jogador VALUES ($player->id, '$player->name', '$player->position', $player->point, $player->rebound, $player->block, $player->steal, $player->assist, $player->missShot, $player->turnOver, '$player->imgUrl', $player->price, $player->team);",
+                    "REPLACE INTO tb_jogador VALUES ($player->id, '$player->name', '$player->position', $player->point, $player->rebound, $player->block, $player->steal, $player->assist, $player->missShot, $player->turnOver, '$player->imgUrl', $points * 5, $player->team);",
                     MYSQLI_USE_RESULT
                     );
 
