@@ -70,46 +70,6 @@ CREATE TABLE `log_tb_jogador` (
   `dt_ajuste` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `log_tb_jogador` (`cd_jogador`, `nm_jogador`, `nm_posicao`, `qt_ponto`, `qt_rebote`, `qt_toco`, `qt_bola_recuperada`, `qt_assistencia`, `qt_arremesso_errado`, `qt_turn_over`, `cd_imagem`, `qt_preco`, `cd_time`, `cd_rodada`, `cd_admin`, `dt_ajuste`) VALUES
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 1, 3, 4, '2022-11-01 00:00:00'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 1, 3, 4, '2022-11-01 00:00:00'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 1, 3, 4, '2022-11-01 00:00:00'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 1, 3, 4, '2022-11-01 00:00:00'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 1, 3, 4, '2022-11-01 00:00:00'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 1, 3, 4, '2022-11-01 00:00:00'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 1, 3, 4, '2022-11-01 00:00:00'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 1, 3, 4, '2022-11-01 00:00:00'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 1, 3, 4, '2022-11-01 00:00:00'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 1, 3, 4, '2022-11-01 00:00:00'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 1, 3, 4, '2022-11-01 00:00:00'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 1, 3, 4, '2022-11-01 00:00:00'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 1, 3, 4, '2022-11-01 00:00:00'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 1, 3, 4, '2022-11-01 00:00:00'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 2, 3, 4, '2022-11-01 12:16:52'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 2, NULL, 3, '2022-11-01 12:25:19'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 2, NULL, 3, '2022-11-01 12:25:32'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 2, NULL, 3, '2022-11-01 12:27:22'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 2, NULL, 3, '2022-11-01 12:27:40'),
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 2, 1, 1, '2022-11-16 23:14:38'),
-(3, 'Da Silva', 'Ala', 20, 8, 2, 3, 6, 7, 3, 'https://lnb.com.br/wp-content/uploads/2020/10/TULIO-400x394.png', 23, 1, 1, 1, '2022-11-16 23:32:21'),
-(3, 'Da Silva', 'Ala', 20, 8, 2, 3, 6, 7, 3, 'https://lnb.com.br/wp-content/uploads/2020/10/TULIO-400x394.png', 23, 1, 1, 1, '2022-11-16 23:34:04'),
-(3, 'Da Silva', 'Ala', 20, 8, 2, 3, 6, 7, 3, 'https://lnb.com.br/wp-content/uploads/2020/10/TULIO-400x394.png', 23, 1, 1, 1, '2022-11-16 23:34:29'),
-(3, 'Da Silva', 'Ala', 20, 8, 2, 3, 6, 7, 3, 'https://lnb.com.br/wp-content/uploads/2020/10/TULIO-400x394.png', 23, 1, 1, 1, '2022-11-16 23:35:03'),
-(3, 'Da Silva', 'Ala', 20, 8, 2, 3, 6, 7, 3, 'https://lnb.com.br/wp-content/uploads/2020/10/TULIO-400x394.png', 23, 1, 1, 1, '2022-11-16 23:35:53'),
-(4, 'Márcio', 'Ala', 19, 6, 3, 1, 2, 4, 2, 'https://lnb.com.br/wp-content/uploads/2018/08/Marcio-2-400x400.png', 16, 2, 1, 1, '2022-11-16 23:35:57'),
-(6, 'Du Klafke', 'Armador', 15, 4, 2, 5, 3, 3, 2, 'https://lnb.com.br/wp-content/uploads/2020/10/Du-Klafke-1-400x400.png', 15, 2, 1, 1, '2022-11-16 23:36:03'),
-(5, 'Batista', 'Pivô', 12, 9, 5, 1, 0, 3, 0, 'https://lnb.com.br/wp-content/uploads/2016/10/BATISTA-400x394.png', 15, 1, 1, 1, '2022-11-16 23:36:07'),
-(7, 'Olivinha', 'Pivô', 6, 10, 5, 2, 0, 0, 1, 'https://lnb.com.br/wp-content/uploads/2016/10/OLIVINHA-1-400x381.png', 14, 1, 1, 1, '2022-11-16 23:36:10'),
-(8, 'Scala', 'Armador', 14, 2, 3, 6, 7, 0, 1, 'https://lnb.com.br/wp-content/uploads/2021/07/Santiago-Scala-400x400.png', 18, 2, 1, 1, '2022-11-16 23:39:57'),
-(9, 'Renato', 'Ala', 15, 4, 3, 2, 2, 0, 3, 'https://lnb.com.br/wp-content/uploads/2021/07/Renato.png', 14, 1, 1, 1, '2022-11-16 23:40:01'),
-(10, 'Lucas Dias', 'Ala', 2, 12, 4, 1, 0, 3, 0, 'https://lnb.com.br/wp-content/uploads/2016/10/lucas-dias-1-400x394.png', 16, 2, 1, 1, '2022-11-16 23:40:03'),
-(11, 'Teste', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 1, 1, 1, '2022-11-16 23:40:05'),
-(12, 'Teste', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 1, 1, 1, '2022-11-16 23:40:08'),
-(13, 'Teste', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 1, 1, 1, '2022-11-16 23:40:10'),
-(14, 'Teste', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 1, 1, 1, '2022-11-16 23:40:12'),
-(15, 'Teste', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 1, 1, 1, '2022-11-16 23:40:15'),
-(2, 'Felipe', 'Pivô', 67, 10, 6, 4, 1, 5, 1, 'https://lnb.com.br/wp-content/uploads/2018/08/Felipe-Nascimento-1-400x400.png', 760, 2, 1, 1, '2022-11-17 01:00:20');
-
 CREATE TABLE `ordem_patrocinador_liga` (
   `cd_patrocinador` int(10) NOT NULL,
   `cd_liga_patrocinada` int(10) NOT NULL
@@ -128,9 +88,6 @@ CREATE TABLE `ordem_usuario_patrocinada` (
   `qt_pontos` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `ordem_usuario_patrocinada` (`cd_usuario`, `cd_liga_patrocinada`, `qt_pontos`) VALUES
-(1, 3, 245);
-
 CREATE TABLE `tb_admin` (
   `cd_admin` int(10) NOT NULL,
   `nm_admin` varchar(100) DEFAULT NULL,
@@ -138,9 +95,6 @@ CREATE TABLE `tb_admin` (
   `dt_nascimento` date DEFAULT NULL,
   `nm_senha` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO `tb_admin` (`cd_admin`, `nm_admin`, `cd_email`, `dt_nascimento`, `nm_senha`) VALUES
-(1, 'Alison Alves', 'a.docalves@gmail.com', '2001-09-18', 'Abc123456789');
 
 CREATE TABLE `tb_compra_jogador` (
   `cd_compra` int(10) NOT NULL,
@@ -173,23 +127,6 @@ CREATE TABLE `tb_jogador` (
   `cd_time` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `tb_jogador` (`cd_jogador`, `nm_jogador`, `nm_posicao`, `qt_ponto`, `qt_rebote`, `qt_toco`, `qt_bola_recuperada`, `qt_assistencia`, `qt_arremesso_errado`, `qt_turn_over`, `cd_imagem`, `qt_preco`, `cd_time`) VALUES
-(1, 'Yago', 'Armador', 27, 4, 3, 6, 10, 5, 3, 'https://lnb.com.br/wp-content/uploads/2016/10/YAGO-400x394.png', 24, 2),
-(2, 'Felipe', 'Pivô', 22, 10, 6, 4, 1, 5, 1, 'https://lnb.com.br/wp-content/uploads/2018/08/Felipe-Nascimento-1-400x400.png', 310, 2),
-(3, 'Da Silva', 'Ala', 20, 8, 2, 3, 6, 7, 3, 'https://lnb.com.br/wp-content/uploads/2020/10/TULIO-400x394.png', 23, 1),
-(4, 'Márcio', 'Ala', 19, 6, 3, 1, 2, 4, 2, 'https://lnb.com.br/wp-content/uploads/2018/08/Marcio-2-400x400.png', 16, 2),
-(5, 'Batista', 'Pivô', 12, 9, 5, 1, 0, 3, 0, 'https://lnb.com.br/wp-content/uploads/2016/10/BATISTA-400x394.png', 15, 1),
-(6, 'Du Klafke', 'Armador', 15, 4, 2, 5, 3, 3, 2, 'https://lnb.com.br/wp-content/uploads/2020/10/Du-Klafke-1-400x400.png', 15, 2),
-(7, 'Olivinha', 'Pivô', 6, 10, 5, 2, 0, 0, 1, 'https://lnb.com.br/wp-content/uploads/2016/10/OLIVINHA-1-400x381.png', 14, 1),
-(8, 'Scala', 'Armador', 14, 2, 3, 6, 7, 0, 1, 'https://lnb.com.br/wp-content/uploads/2021/07/Santiago-Scala-400x400.png', 18, 2),
-(9, 'Renato', 'Ala', 15, 4, 3, 2, 2, 0, 3, 'https://lnb.com.br/wp-content/uploads/2021/07/Renato.png', 14, 1),
-(10, 'Lucas Dias', 'Ala', 2, 12, 4, 1, 0, 3, 0, 'https://lnb.com.br/wp-content/uploads/2016/10/lucas-dias-1-400x394.png', 16, 2),
-(11, 'Teste', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 1),
-(12, 'Teste', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 1),
-(13, 'Teste', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 1),
-(14, 'Teste', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 1),
-(15, 'Teste', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 1);
-
 CREATE TABLE `tb_liga_comum` (
   `cd_liga_comum` int(10) NOT NULL,
   `nm_liga_comum` varchar(100) DEFAULT NULL,
@@ -203,13 +140,6 @@ CREATE TABLE `tb_liga_patrocinada` (
   `cd_liga_patrocinada` int(10) NOT NULL,
   `nm_liga_patrocinada` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO `tb_liga_patrocinada` (`cd_liga_patrocinada`, `nm_liga_patrocinada`) VALUES
-(1, 'Liga Caixa'),
-(2, 'Liga Nike'),
-(3, 'Liga Adidas'),
-(4, 'Liga Gatorade'),
-(5, 'Liga Growth');
 
 CREATE TABLE `tb_ordem_compra_icone` (
   `cd_compra` int(10) NOT NULL,
@@ -230,9 +160,6 @@ CREATE TABLE `tb_partida` (
   `cd_rodada` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `tb_partida` (`cd_partida`, `dt_partida`, `hr_partida`, `qt_ponto_casa`, `qt_ponto_visitante`, `cd_time_casa`, `cd_time_visitante`, `cd_rodada`) VALUES
-(1, '2022-11-16', '17:43:46', 0, 0, 1, 2, 1);
-
 CREATE TABLE `tb_patrocinador` (
   `cd_patrocinador` int(10) NOT NULL,
   `nm_oficial` varchar(100) DEFAULT NULL,
@@ -249,9 +176,6 @@ CREATE TABLE `tb_rodada` (
   `cd_turno` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `tb_rodada` (`cd_rodada`, `dt_inicio`, `dt_fim`, `qt_rodada`, `hr_inicio`, `hr_fim`, `cd_turno`) VALUES
-(1, '2022-11-15', '2022-11-18', 4, '18:30:04', '23:30:04', NULL);
-
 CREATE TABLE `tb_temporada` (
   `cd_temporada` int(10) NOT NULL,
   `nm_temporada` varchar(45) DEFAULT NULL
@@ -262,10 +186,6 @@ CREATE TABLE `tb_time` (
   `nm_time` varchar(80) DEFAULT NULL,
   `cd_logo` varchar(120) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO `tb_time` (`cd_time`, `nm_time`, `cd_logo`) VALUES
-(1, 'Flamengo', 'https://w7.pngwing.com/pngs/440/236/png-transparent-flamengo-hd-logo.png'),
-(2, 'SESI Franca', 'https://upload.wikimedia.org/wikipedia/en/7/75/Franca_basquete_logo.png');
 
 CREATE TABLE `tb_turno` (
   `cd_turno` int(10) NOT NULL,
@@ -285,18 +205,6 @@ CREATE TABLE `tb_usuario` (
   `qt_pontos` int(9) DEFAULT NULL,
   `cd_tatica` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO `tb_usuario` (`cd_usuario`, `nm_usuario`, `cd_email`, `dt_nascimento`, `qt_leonita`, `qt_ametista`, `nm_senha`, `nm_apelido`, `qt_pontos`, `cd_tatica`) VALUES
-(1, 'gabriel', 'gabriel@gmail.com', '2002-03-28', 14298, 0, '1234', 'teste', 150, 0),
-(2, 'gabriel', 'gabriel1@gmail.com', '2022-09-04', 550, 0, 'doVal13$$$', 'dovalzet', 200, 0),
-(3, 'lucas', 'lucas@gmail.com', '2022-09-05', 0, 0, 'Lucas123$', 'luquinha', 250, 0),
-(4, 'Matheus', 'matheus@email.com', '2022-09-13', 12, 0, 'matheus###1', 'matheusi', 150, 0),
-(5, 'Juca', 'juca@email.com', '2022-09-25', 45, 0, 'juquinha@1', 'jucazin', 251, 0),
-(6, 'Gabriel', 'lucas1@gmail.com', '2022-09-22', 0, 0, 'Lucas123%', 'luquinha', 0, 0),
-(7, 'Gabriel', 'gabriel2@gmail.com', '2002-03-28', 2000, 0, 'Gabriel1$', 'gabrielz', 0, 0),
-(8, 'gabriel', 'gabriel3@gmail.com', '2002-01-31', 2000, 0, 'Gabriel1@', 'Gabriel1', 0, 0),
-(9, 'Gabriel', 'gabriel11111@gmai', '2002-04-16', 2000, 0, 'Gabriel1@', 'dovalzet', 0, 3);
-
 
 ALTER TABLE `ordem_patrocinador_liga`
   ADD KEY `fk_ordem_patrocinador` (`cd_patrocinador`),
@@ -393,7 +301,3 @@ ALTER TABLE `tb_rodada`
 ALTER TABLE `tb_turno`
   ADD CONSTRAINT `fk_turno_temporada` FOREIGN KEY (`cd_temporada`) REFERENCES `tb_temporada` (`cd_temporada`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
