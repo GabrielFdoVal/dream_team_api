@@ -1,19 +1,28 @@
 <?php
-    include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Services/ResultService.php");
+     include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Services/ResultService.php");
 
-    function PassMatch(): ResultService {
-        $result = new ResultService();
+     function PassMatch($match, $admin): ResultService {
+          $result = new ResultService();
 
-        include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Repositories/Match/PassMatch.php");
+          include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Repositories/Match/PassMatch.php");
 
-        $code = Pass();
+          if($match == null || $admin == null){
+               //Validação dos campos aqui, caso algum esteja errado o erro é 400.
+               $result->Fail(400, "One or more fields are incorrect.");
+               return $result;
+          }
 
-        if($code){
-            $result->OkNoData(201);
-        }
-        else{
-            $result->Fail(500, "Internal Server Error. Please, try again later.");
-        }
+          $code = Pass($match, $admin);
 
-        return $result;
-    }
+          if($code == 204){
+               $result->OkNoData(204);
+          }
+          else if($code == 400){
+               $result->Fail(400, "Partida já foi passada.");
+          }
+          else{
+               $result->Fail(500, "Internal Server Error. Please, try again later.");
+          }
+
+          return $result;
+     }

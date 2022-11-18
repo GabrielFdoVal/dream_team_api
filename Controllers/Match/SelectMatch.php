@@ -5,7 +5,7 @@
     $response = SelectMatch();
 
     http_response_code($response->status);
-    if($response->status == 201){
+    if($response->status == 200){
         echo json_encode($response->data);
     }
     else{

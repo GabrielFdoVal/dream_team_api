@@ -16,7 +16,7 @@
         $code = LogIn($email, $password);
 
         if($code){
-            $result->Ok(201, $code);
+            $result->Ok(200, $code);
         }
         else{
             $result->Fail(500, "Internal Server Error. Please, try again later.");

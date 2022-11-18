@@ -17,7 +17,7 @@
             $result->Fail(500, json_encode("Internal Server Error. Please, try again later."));
         } else {
             //echo json_encode($code);
-            $result->Ok(201, $code);
+            $result->Ok(200, $code);
         }
 
         return $result;
