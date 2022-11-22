@@ -1,8 +1,10 @@
 <?php
-    include "../../Services/CustomLeague/GetPublicLeagues.php";
+    include "../../Services/CustomLeague/GetOpenLeagues.php";
     file_get_contents('php://input');
 
-    $response = GetPublicLeagues();
+    $response = GetOpenLeagues(
+        $_GET['email'] ?? null
+    );
 
     http_response_code($response->status);
     if($response->status != 201) {

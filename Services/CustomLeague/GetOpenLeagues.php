@@ -1,22 +1,20 @@
 <?php
     include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Services/ResultService.php");
 
-    function AddUser($email, $leagueId): ResultService {
+    function GetOpenLeagues($email): ResultService {
         $result = new ResultService();
-        
 
-        if($email == null || $leagueId == null){
-            //Validação dos campos aqui, caso algum esteja errado o erro é 400.
+        if($email == null){
             $result->Fail(400, "One or more fields are incorrect.");
             return $result;
         }
 
-        include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Repositories/CustomLeague/InsertUser.php");
+        include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Repositories/CustomLeague/SelectOpenLeagues.php");
 
-        $code = InsertUser($email, $leagueId);
+        $code = SelectOpenLeagues($email);
 
         if($code){
-            $result->OkNoData(201);
+            $result->Ok(201, $code);
         }
         else{
             $result->Fail(500, "Internal Server Error. Please, try again later.");

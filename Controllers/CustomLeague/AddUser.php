@@ -4,8 +4,7 @@
 
     $response = AddUser(
         $_POST['email'] ?? null,
-        $_POST['leagueId'] ?? null,
-        $_POST['creator'] ?? null
+        $_POST['leagueId'] ?? null
     );
 
     http_response_code($response->status);

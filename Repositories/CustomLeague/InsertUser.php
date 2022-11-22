@@ -1,5 +1,5 @@
 <?php
-    function InsertUser($email, $leagueId, $creator):bool {
+    function InsertUser($email, $leagueId):bool {
         include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Connection.php");
 
         $DB = new DB();
@@ -15,7 +15,7 @@
                    ($id, 
                     $leagueId, 
                     0, 
-                    $creator);",
+                    0);",
                 MYSQLI_USE_RESULT
             );
         } catch (Exception $e) {
