@@ -15,7 +15,6 @@
                 "SELECT cd_usuario, qt_pontos 
                 FROM ordem_usuario_comum 
                 WHERE cd_liga_comum = $league
-                GROUP BY qt_pontos
                 ORDER BY qt_pontos DESC;",
                 MYSQLI_USE_RESULT
             );
@@ -32,7 +31,7 @@
                 }
                 $position++;
             }
-            return $leagues;
+            return false;
         } else {
             return false;
         }
