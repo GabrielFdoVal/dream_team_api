@@ -42,8 +42,8 @@
                         break;
                     }
                 }
-                if($valid == true){                    
-                    $league = new CustomLeague($res_leagues[$i], $res_leagues[$i+1], $res_leagues[$i+2], $res_leagues[$i+3], $res_leagues[$i+4], $res_leagues[$i+5], "0", $res_leagues[$i+6], $res_leagues[$i+7], $res_leagues[$i+8]);
+                if($valid == true){               
+                    $league = new CustomLeague($res_leagues[$i], $res_leagues[$i+1], $res_leagues[$i+2], $res_leagues[$i+3], $res_leagues[$i+4], $res_leagues[$i+5], "0", $res_leagues[$i+6], $res_leagues[$i+7], $res_leagues[$i+8], "0", "0");
                     array_push($leagues, $league->expose());
                 } else {
                     $valid = true;

@@ -6,7 +6,9 @@
         $_POST['name'] ?? null,
         $_POST['rounds'] ?? null,
         $_POST['userLength'] ?? null,
-        $_POST['private'] ?? null
+        $_POST['private'] ?? null,
+        $_POST['value'] ?? null,
+        $_POST['email'] ?? null
     );
 
     http_response_code($response->status);

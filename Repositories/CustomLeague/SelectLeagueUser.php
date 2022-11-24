@@ -2,6 +2,7 @@
     function SelectLeagueUser($email) {
         include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Connection.php");
         include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Entities/CustomLeague.php");
+        include($_SERVER['DOCUMENT_ROOT']."/dream_team_api/Repositories/CustomLeague/SelectUserPositionIntern.php");
 
         $DB = new DB();
 
@@ -28,7 +29,8 @@
         if($res_leagues){
             $leagues = array();
             for($i = 0; $i < sizeof($res_leagues); $i = $i + 9){
-                $league = new CustomLeague($res_leagues[$i], $res_leagues[$i+1], $res_leagues[$i+2], $res_leagues[$i+3], $res_leagues[$i+4], $res_leagues[$i+5], $res_leagues[$i+6], $res_leagues[$i+7], $res_leagues[$i+8],"0");
+                $position = SelectUserPosition($email, $res_leagues[$i]);
+                $league = new CustomLeague($res_leagues[$i], $res_leagues[$i+1], $res_leagues[$i+2], $res_leagues[$i+3], $res_leagues[$i+4], $res_leagues[$i+5], $res_leagues[$i+6], $res_leagues[$i+7], $res_leagues[$i+8],"0", $position);
                 array_push($leagues, $league->expose());
             }
             return $leagues;
