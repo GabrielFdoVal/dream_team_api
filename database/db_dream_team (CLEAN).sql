@@ -1,13 +1,3 @@
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
-
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_paga_comum` (IN `codLiga` INT(11))   begin
 	declare usu1 int(11);
@@ -15,7 +5,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_paga_comum` (IN `codLiga` INT(11
 	declare usu3 int(11);
     declare maxPonto decimal(9,2);
     declare base int default 0;
-    
+
 	if( (select qt_rodada from tb_liga_comum where cd_liga_comum = codLiga) = 0) then
 		if( (select qt_usuario from tb_liga_comum where cd_liga_comum = codLiga) <= 50 ) then
 			set base = (select qt_usuario from tb_liga_comum where cd_liga_comum = codLiga) * 3 + (select sum(qt_pontos) from ordem_usuario_comum where cd_liga_comum = codLiga) * 0.35;
@@ -42,7 +32,6 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_paga_comum` (IN `codLiga` INT(11
 		select 'Liga ainda não acabou';
      end if;   
 end$$
-
 DELIMITER ;
 
 CREATE TABLE `log_rodada` (
@@ -80,12 +69,6 @@ CREATE TABLE `ordem_usuario_comum` (
   `cd_liga_comum` int(10) NOT NULL,
   `qt_pontos` int(3) DEFAULT NULL,
   `ic_criador` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-CREATE TABLE `ordem_usuario_patrocinada` (
-  `cd_usuario` int(10) NOT NULL,
-  `cd_liga_patrocinada` int(10) NOT NULL,
-  `qt_pontos` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `tb_admin` (
@@ -203,7 +186,8 @@ CREATE TABLE `tb_usuario` (
   `nm_senha` varchar(30) DEFAULT NULL,
   `nm_apelido` varchar(8) DEFAULT NULL,
   `qt_pontos` int(9) DEFAULT NULL,
-  `cd_tatica` tinyint(1) DEFAULT NULL
+  `cd_tatica` tinyint(1) DEFAULT NULL,
+  `cd_liga_patrocinada` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `ordem_patrocinador_liga`
@@ -213,10 +197,6 @@ ALTER TABLE `ordem_patrocinador_liga`
 ALTER TABLE `ordem_usuario_comum`
   ADD KEY `fk_ordem_comum` (`cd_liga_comum`),
   ADD KEY `fk_ordem_usuario` (`cd_usuario`);
-
-ALTER TABLE `ordem_usuario_patrocinada`
-  ADD KEY `fk_ordem_usuario_patrocinada` (`cd_liga_patrocinada`),
-  ADD KEY `fk_ordem_patrocinada_usuario` (`cd_usuario`);
 
 ALTER TABLE `tb_compra_jogador`
   ADD PRIMARY KEY (`cd_compra`),
@@ -264,7 +244,8 @@ ALTER TABLE `tb_turno`
   ADD KEY `fk_turno_temporada` (`cd_temporada`);
 
 ALTER TABLE `tb_usuario`
-  ADD PRIMARY KEY (`cd_usuario`);
+  ADD PRIMARY KEY (`cd_usuario`),
+  ADD KEY `fk_usuario_liga` (`cd_liga_patrocinada`);
 
 
 ALTER TABLE `ordem_patrocinador_liga`
@@ -274,10 +255,6 @@ ALTER TABLE `ordem_patrocinador_liga`
 ALTER TABLE `ordem_usuario_comum`
   ADD CONSTRAINT `fk_ordem_comum` FOREIGN KEY (`cd_liga_comum`) REFERENCES `tb_liga_comum` (`cd_liga_comum`),
   ADD CONSTRAINT `fk_ordem_usuario` FOREIGN KEY (`cd_usuario`) REFERENCES `tb_usuario` (`cd_usuario`);
-
-ALTER TABLE `ordem_usuario_patrocinada`
-  ADD CONSTRAINT `fk_ordem_patrocinada_usuario` FOREIGN KEY (`cd_usuario`) REFERENCES `tb_usuario` (`cd_usuario`),
-  ADD CONSTRAINT `fk_ordem_usuario_patrocinada` FOREIGN KEY (`cd_liga_patrocinada`) REFERENCES `tb_liga_patrocinada` (`cd_liga_patrocinada`);
 
 ALTER TABLE `tb_compra_jogador`
   ADD CONSTRAINT `fk_compra_jogador` FOREIGN KEY (`cd_jogador`) REFERENCES `tb_jogador` (`cd_jogador`),

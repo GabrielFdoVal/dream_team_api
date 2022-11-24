@@ -29,9 +29,9 @@
                ");
 
                foreach(array_chunk($pagarTimes, 3) as $Row=>$dado){
-                    echo $DB->ExecSQL("update tb_usuario set qt_leonita = (qt_leonita + $dado[0]) where cd_usuario = $dado[2];") . " - ";
-                    echo $DB->ExecSQL("update ordem_usuario_comum set qt_pontos = (qt_pontos + $dado[1]) where cd_usuario = $dado[2];") . " - ";
-                    echo $DB->ExecSQL("update ordem_usuario_patrocinada set qt_pontos = (qt_pontos + $dado[1]) where cd_usuario = $dado[2];") . " - ";
+                    $DB->ExecSQL("update tb_usuario set qt_leonita = (qt_leonita + $dado[0]) where cd_usuario = $dado[2];");
+                    $DB->ExecSQL("update ordem_usuario_comum set qt_pontos = (qt_pontos + $dado[1]) where cd_usuario = $dado[2];");
+                    $DB->ExecSQL("update tb_usuario set qt_pontos = (qt_pontos + $dado[1]) where cd_usuario = $dado[2];");
                }
                
                $DB->ExecSQL("delete from tb_compra_jogador;");
