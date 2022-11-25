@@ -38,7 +38,7 @@
                 MYSQLI_USE_RESULT
             );
 
-            $res_insert = $DB->ExecSQL(
+            $res_insertUser = $DB->ExecSQL(
                 "INSERT INTO ordem_usuario_comum VALUES 
                    ($userId, 
                     $id, 
