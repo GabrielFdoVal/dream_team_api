@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Nov-2022 às 02:10
--- Versão do servidor: 10.4.25-MariaDB
--- versão do PHP: 8.1.10
+-- Tempo de geração: 29-Nov-2022 às 00:31
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -73,6 +73,13 @@ CREATE TABLE `log_rodada` (
   `dt_ajuste` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `log_rodada`
+--
+
+INSERT INTO `log_rodada` (`cd_rodada`, `cd_admin`, `dt_ajuste`) VALUES
+(1, 1, '2022-11-28 20:26:35');
+
 -- --------------------------------------------------------
 
 --
@@ -98,6 +105,17 @@ CREATE TABLE `log_tb_jogador` (
   `dt_ajuste` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `log_tb_jogador`
+--
+
+INSERT INTO `log_tb_jogador` (`cd_jogador`, `nm_jogador`, `nm_posicao`, `qt_ponto`, `qt_rebote`, `qt_toco`, `qt_bola_recuperada`, `qt_assistencia`, `qt_arremesso_errado`, `qt_turn_over`, `cd_imagem`, `qt_preco`, `cd_time`, `cd_rodada`, `cd_admin`, `dt_ajuste`) VALUES
+(1, 'Teste1', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 1, 1, 1, '2022-11-28 20:26:22'),
+(2, 'Teste2', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 2, 1, 1, '2022-11-28 20:26:25'),
+(3, 'Teste3', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 2, 1, 1, '2022-11-28 20:26:27'),
+(4, 'Teste4', 'Armador', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 2, 1, 1, '2022-11-28 20:26:30'),
+(5, 'Teste5', 'Pivo', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 2, 1, 1, '2022-11-28 20:26:33');
+
 -- --------------------------------------------------------
 
 --
@@ -117,8 +135,8 @@ CREATE TABLE `ordem_usuario_comum` (
 
 INSERT INTO `ordem_usuario_comum` (`cd_usuario`, `cd_liga_comum`, `qt_pontos`, `ic_criador`) VALUES
 (2, 1, 150, 1),
-(3, 1, 0, 0),
-(3, 2, 0, 1);
+(3, 1, 150, 0),
+(3, 2, 150, 1);
 
 -- --------------------------------------------------------
 
@@ -154,14 +172,6 @@ CREATE TABLE `tb_compra_jogador` (
   `dt_compra` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `tb_compra_jogador`
---
-
-INSERT INTO `tb_compra_jogador` (`cd_compra`, `cd_usuario`, `cd_jogador`, `dt_compra`) VALUES
-(1, 3, 1, '2022-11-25 00:39:06'),
-(2, 3, 2, '2022-11-25 00:39:09');
-
 -- --------------------------------------------------------
 
 --
@@ -189,11 +199,11 @@ CREATE TABLE `tb_jogador` (
 --
 
 INSERT INTO `tb_jogador` (`cd_jogador`, `nm_jogador`, `nm_posicao`, `qt_ponto`, `qt_rebote`, `qt_toco`, `qt_bola_recuperada`, `qt_assistencia`, `qt_arremesso_errado`, `qt_turn_over`, `cd_imagem`, `qt_preco`, `cd_time`) VALUES
-(1, 'Teste1', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 1),
-(2, 'Teste2', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 2),
-(3, 'Teste3', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 2),
-(4, 'Teste4', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 2),
-(5, 'Teste5', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 10, 2);
+(1, 'Teste1', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 100, 1),
+(2, 'Teste2', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 100, 2),
+(3, 'Teste3', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 100, 2),
+(4, 'Teste4', 'Armador', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 100, 2),
+(5, 'Teste5', 'Pivo', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 100, 2);
 
 -- --------------------------------------------------------
 
@@ -216,8 +226,8 @@ CREATE TABLE `tb_liga_comum` (
 --
 
 INSERT INTO `tb_liga_comum` (`cd_liga_comum`, `nm_liga_comum`, `qt_rodada`, `qt_usuario`, `ic_privada`, `cd_privada`, `vl_entrar`) VALUES
-(1, 'Liga comum publica 1', 12, 20, 0, '12345678', 100),
-(2, 'Liga comum criada', 6, 6, 1, '15630945', 300);
+(1, 'Liga comum publica 1', 11, 20, 0, '12345678', 100),
+(2, 'Liga comum criada', 5, 6, 1, '15630945', 300);
 
 -- --------------------------------------------------------
 
@@ -259,7 +269,7 @@ CREATE TABLE `tb_partida` (
 --
 
 INSERT INTO `tb_partida` (`cd_partida`, `dt_partida`, `hr_partida`, `qt_ponto_casa`, `qt_ponto_visitante`, `cd_time_casa`, `cd_time_visitante`, `cd_rodada`) VALUES
-(1, '2022-11-16', '17:43:46', 0, 0, 1, 2, 1);
+(1, '2022-11-20', '17:43:46', 0, 0, 1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -282,7 +292,7 @@ CREATE TABLE `tb_rodada` (
 --
 
 INSERT INTO `tb_rodada` (`cd_rodada`, `dt_inicio`, `dt_fim`, `qt_rodada`, `hr_inicio`, `hr_fim`, `cd_turno`) VALUES
-(1, '2022-11-15', '2022-11-18', 4, '18:30:04', '23:30:04', NULL);
+(1, '2022-11-20', '2022-11-28', 4, '18:30:04', '23:30:04', NULL);
 
 -- --------------------------------------------------------
 
@@ -353,7 +363,7 @@ CREATE TABLE `tb_usuario` (
 
 INSERT INTO `tb_usuario` (`cd_usuario`, `nm_usuario`, `cd_email`, `dt_nascimento`, `qt_leonita`, `qt_ametista`, `nm_senha`, `nm_apelido`, `qt_pontos`, `cd_tatica`, `cd_liga_patrocinada`) VALUES
 (2, 'Jorge', 'jorge@email.com', '2001-09-18', 1000, 0, 'Jorge123!', 'jorgin', 150, 0, 1),
-(3, 'Gabriel', 'gabriel@gmail.com', '1993-11-24', 1580, 0, 'Gabriel1$$$', 'dovalz', 0, 0, 1);
+(3, 'Gabriel', 'gabriel@gmail.com', '1993-11-24', 3050, 0, 'Gabriel1$$$', 'dovalz', 150, 0, 1);
 
 --
 -- Índices para tabelas despejadas
