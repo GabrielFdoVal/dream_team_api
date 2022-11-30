@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29-Nov-2022 às 00:31
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
+-- Tempo de geração: 30-Nov-2022 às 01:14
+-- Versão do servidor: 10.4.25-MariaDB
+-- versão do PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -134,9 +134,12 @@ CREATE TABLE `ordem_usuario_comum` (
 --
 
 INSERT INTO `ordem_usuario_comum` (`cd_usuario`, `cd_liga_comum`, `qt_pontos`, `ic_criador`) VALUES
-(2, 1, 150, 1),
-(3, 1, 150, 0),
-(3, 2, 150, 1);
+(3, 2, 150, 1),
+(2, 1, 100, 1),
+(4, 3, 500, 1),
+(2, 2, 100, 0),
+(4, 1, 300, 0),
+(5, 3, 48, 0);
 
 -- --------------------------------------------------------
 
@@ -157,7 +160,7 @@ CREATE TABLE `tb_admin` (
 --
 
 INSERT INTO `tb_admin` (`cd_admin`, `nm_admin`, `cd_email`, `dt_nascimento`, `nm_senha`) VALUES
-(1, 'Alison de Oliveira', 'alison.admin@gmail.com', '2001-09-18', 'Abc12345!');
+(1, 'Alison de Oliveira', 'admin@gmail.com', '2001-09-18', 'Abc12345!');
 
 -- --------------------------------------------------------
 
@@ -199,11 +202,16 @@ CREATE TABLE `tb_jogador` (
 --
 
 INSERT INTO `tb_jogador` (`cd_jogador`, `nm_jogador`, `nm_posicao`, `qt_ponto`, `qt_rebote`, `qt_toco`, `qt_bola_recuperada`, `qt_assistencia`, `qt_arremesso_errado`, `qt_turn_over`, `cd_imagem`, `qt_preco`, `cd_time`) VALUES
-(1, 'Teste1', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 100, 1),
-(2, 'Teste2', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 100, 2),
-(3, 'Teste3', 'Ala', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 100, 2),
-(4, 'Teste4', 'Armador', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 100, 2),
-(5, 'Teste5', 'Pivo', 10, 10, 10, 10, 10, 10, 10, 'https://cdn.w600.comps.canstockphoto.com.br/soldado-3d-ping%C3%BCim-banco-de-ilustra%C3%A7%C3%A3o_csp19614160.jpg', 100, 2);
+(1, 'Deodato', 'Ala', 11, 2, 1, 1, 2, 3, 1, 'https://lnb.com.br/wp-content/uploads/2016/10/Gui-Deodato.png', 100, 1),
+(2, 'R. Rachel', 'Ala', 15, 2, 1, 1, 2, 3, 1, 'https://lnb.com.br/wp-content/uploads/2017/10/Rachel.png', 100, 1),
+(3, 'Renato', 'Armador', 8, 2, 8, 1, 2, 3, 1, 'https://lnb.com.br/wp-content/uploads/2021/07/Renato.png', 100, 1),
+(4, 'Mineiro', 'Armador', 8, 5, 8, 1, 2, 3, 1, 'https://lnb.com.br/wp-content/uploads/2016/10/RAFA-MINEIRO-400x386.png', 100, 1),
+(5, 'Olivinha', 'Pivo', 4, 10, 0, 2, 1, 1, 1, 'https://lnb.com.br/wp-content/uploads/2016/10/OLIVINHA-1-400x381.png', 100, 1),
+(6, 'Reynan', 'Ala', 11, 2, 1, 1, 2, 3, 1, 'https://lnb.com.br/wp-content/uploads/2020/10/Reynan-1-400x400.png', 100, 2),
+(7, 'David Jackson', 'Ala', 15, 2, 1, 1, 2, 3, 1, 'https://lnb.com.br/wp-content/uploads/2016/10/David-Jackson_-400x400.png', 100, 2),
+(8, 'Du Klafke', 'Armador', 8, 2, 8, 1, 2, 3, 1, 'https://lnb.com.br/wp-content/uploads/2020/10/Du-Klafke-1-400x400.png', 100, 2),
+(9, 'Márcio', 'Pivo', 4, 10, 0, 2, 1, 1, 1, 'https://lnb.com.br/wp-content/uploads/2018/08/Marcio-2-400x400.png', 100, 2),
+(10, 'Lucas Mariano', 'Pivo', 4, 10, 0, 2, 1, 1, 1, 'https://lnb.com.br/wp-content/uploads/2016/10/Lucas-Mariano-1-400x400.png', 100, 2);
 
 -- --------------------------------------------------------
 
@@ -226,8 +234,9 @@ CREATE TABLE `tb_liga_comum` (
 --
 
 INSERT INTO `tb_liga_comum` (`cd_liga_comum`, `nm_liga_comum`, `qt_rodada`, `qt_usuario`, `ic_privada`, `cd_privada`, `vl_entrar`) VALUES
-(1, 'Liga comum publica 1', 11, 20, 0, '12345678', 100),
-(2, 'Liga comum criada', 5, 6, 1, '15630945', 300);
+(1, 'Amigos Fatec', 5, 18, 0, '12345678', 100),
+(2, 'ADS 6º', 5, 6, 1, '15630945', 300),
+(3, 'Rua 23', 12, 20, 0, '87654321', 500);
 
 -- --------------------------------------------------------
 
@@ -245,7 +254,8 @@ CREATE TABLE `tb_liga_patrocinada` (
 --
 
 INSERT INTO `tb_liga_patrocinada` (`cd_liga_patrocinada`, `nm_liga_patrocinada`) VALUES
-(1, 'Liga Adidas');
+(1, 'Liga Adidas'),
+(2, 'Liga Caixa');
 
 -- --------------------------------------------------------
 
@@ -269,7 +279,11 @@ CREATE TABLE `tb_partida` (
 --
 
 INSERT INTO `tb_partida` (`cd_partida`, `dt_partida`, `hr_partida`, `qt_ponto_casa`, `qt_ponto_visitante`, `cd_time_casa`, `cd_time_visitante`, `cd_rodada`) VALUES
-(1, '2022-11-20', '17:43:46', 0, 0, 1, 2, 1);
+(1, '2022-11-20', '17:43:46', 0, 0, 1, 2, 1),
+(2, '2022-11-29', '18:30:04', 0, 0, 1, 2, 2),
+(4, '2022-12-01', '18:30:04', 0, 0, 1, 2, 4),
+(5, '2022-12-03', '18:30:04', 0, 0, 1, 2, 5),
+(6, '2022-12-05', '18:30:04', 0, 0, 1, 2, 6);
 
 -- --------------------------------------------------------
 
@@ -292,7 +306,11 @@ CREATE TABLE `tb_rodada` (
 --
 
 INSERT INTO `tb_rodada` (`cd_rodada`, `dt_inicio`, `dt_fim`, `qt_rodada`, `hr_inicio`, `hr_fim`, `cd_turno`) VALUES
-(1, '2022-11-20', '2022-11-28', 4, '18:30:04', '23:30:04', NULL);
+(1, '2022-11-20', '2022-11-28', 1, '18:30:04', '23:30:04', NULL),
+(2, '2022-11-29', '2022-11-30', 2, '18:25:24', '18:25:24', NULL),
+(4, '2022-12-01', '2022-12-02', 4, '18:25:24', '18:25:24', NULL),
+(5, '2022-12-03', '2022-12-04', 5, '18:25:24', '18:25:24', NULL),
+(6, '2022-12-05', '2022-12-06', 6, '18:25:24', '18:25:24', NULL);
 
 -- --------------------------------------------------------
 
@@ -363,7 +381,9 @@ CREATE TABLE `tb_usuario` (
 
 INSERT INTO `tb_usuario` (`cd_usuario`, `nm_usuario`, `cd_email`, `dt_nascimento`, `qt_leonita`, `qt_ametista`, `nm_senha`, `nm_apelido`, `qt_pontos`, `cd_tatica`, `cd_liga_patrocinada`) VALUES
 (2, 'Jorge', 'jorge@email.com', '2001-09-18', 1000, 0, 'Jorge123!', 'jorgin', 150, 0, 1),
-(3, 'Gabriel', 'gabriel@gmail.com', '1993-11-24', 3050, 0, 'Gabriel1$$$', 'dovalz', 150, 0, 1);
+(3, 'Gabriel', 'gabriel@gmail.com', '1993-11-24', 3050, 0, 'Gabriel1$$$', 'dovalz', 150, 0, 1),
+(4, 'Maria', 'maria@gmail.com', '1992-11-18', 1500, 0, 'Maria123!', 'mariazin', 200, 0, 2),
+(5, 'Lucas', 'lucas@gmail.com', '1997-09-25', 45, 0, 'Lucas123!', 'lucazin', 20, 0, 2);
 
 --
 -- Índices para tabelas despejadas
